@@ -64,6 +64,20 @@
                   "multiple": false,
                   "typeName": "authorAffiliation"
                 }
+              },
+              {
+                "authorName": {
+                  "value": "",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorName"
+                },
+                "authorAffiliation": {
+                  "value": "",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorAffiliation"
+                }
               }
             ],
             "typeClass": "compound",

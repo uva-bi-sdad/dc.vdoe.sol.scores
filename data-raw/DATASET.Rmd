@@ -3,10 +3,33 @@ title: "Create Dataset"
 author: "Aaron Schroeder"
 date: "11/17/2021"
 output: html_document
+dataset:
+  citation:
+      title: "Social Data Commons: Education & Training: Virginia SOL Scores"
+      dsDescriptionValue: "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)"
+      subject: "Social Sciences"
+      productionDate: "2021-11-17"
+      author:
+        - authorName: "Schroeder, Aaron"
+          authorAffiliation: "Univeristy of Virginia"
+        - authorName: "Charankevich, Hanna"
+          authorAffiliation: "Univeristy of Virginia"
+      datasetContact:
+        datasetContactEmail: "ads7fg@virginia.edu"
+        datasetContactName: "Schroeder, Aaron"
+  geospatial:
+    geographicCoverage:
+      country: "United States"
+      state: "Virginia"
+    geographicUnit:
+      - "State Health District"
+      - "County"
 ---
 
+
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
 ## Create Dataverse Dataset (if needed) and get DOI
