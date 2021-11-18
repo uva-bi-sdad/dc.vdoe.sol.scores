@@ -3,17 +3,42 @@ title: "Create or Update Dataset"
 author: "Aaron Schroeder"
 date: "11/18/2021"
 output: html_document
+dataset:
+  citation:
+      title: "Social Data Commons: Education & Training: Virginia SOL Scores"
+      dsDescriptionValue: "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)"
+      subject: "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"
+      productionDate: "2021-11-17"
+      author:
+        - authorName: "Schroeder, Aaron"
+          authorAffiliation: "Univeristy of Virginia"
+        - authorName: "Charankevich, Hanna"
+          authorAffiliation: "Univeristy of Virginia"
+        - authorName: "Niagra, Bob"
+          authorAffiliation: "Univeristy of Waterloo"
+      datasetContact:
+        - datasetContactEmail: "ads7fg@virginia.edu"
+          datasetContactName: "Schroeder, Aaron"
+        - datasetContactEmail: "hc2cc@virginia.edu"
+          datasetContactName: "Charankevich, Hanna"
+  geospatial:
+    geographicCoverage:
+      country: "United States"
+      state: "Virginia"
+    geographicUnit:
+      - "State Health District"
+      - "County"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Load dataset json template and dataset yml
 
 ```{r}
 dataset_metadata <- jsonlite::read_json("dataset-metadata.json")
-yml_metadata <- rmarkdown::yaml_front_matter(here::here("data-raw/dataset.Rmd"))
+yml_metadata <- rmarkdown::yaml_front_matter(here::here("data-raw/dataset_create.Rmd"))
 ```
 
 # Set title
