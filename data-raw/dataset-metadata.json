@@ -1,40 +1,6 @@
 {
   "datasetVersion": {
     "metadataBlocks": {
-      "geospatial": {
-        "displayName": "Geospatial Metadata",
-        "fields": [
-          {
-            "typeName": "geographicCoverage",
-            "multiple": true,
-            "typeClass": "compound",
-            "value": [
-              {
-                "country": {
-                  "typeName": "country",
-                  "multiple": false,
-                  "typeClass": "controlledVocabulary",
-                  "value": "United States"
-                },
-                "state": {
-                  "typeName": "state",
-                  "multiple": false,
-                  "typeClass": "primitive",
-                  "value": "Virginia"
-                }
-              }
-            ]
-          },
-          {
-            "typeName": "geographicUnit",
-            "multiple": true,
-            "typeClass": "primitive",
-            "value": [
-              "State Health District",
-              "County"
-            ]
-          }
-          ]},
       "citation": {
         "fields": [
           {
@@ -125,7 +91,41 @@
           }
         ],
         "displayName": "Citation Metadata"
-      }
+      },
+      "geospatial": {
+        "displayName": "Geospatial Metadata",
+        "fields": [
+          {
+            "typeName": "geographicCoverage",
+            "multiple": true,
+            "typeClass": "compound",
+            "value": [
+              {
+                "country": {
+                  "typeName": "country",
+                  "multiple": false,
+                  "typeClass": "controlledVocabulary",
+                  "value": "United States"
+                },
+                "state": {
+                  "typeName": "state",
+                  "multiple": false,
+                  "typeClass": "primitive",
+                  "value": "Virginia"
+                }
+              }
+            ]
+          },
+          {
+            "typeName": "geographicUnit",
+            "multiple": true,
+            "typeClass": "primitive",
+            "value": [
+              "State Health District",
+              "County"
+            ]
+          }
+          ]}
     }
   }
 }

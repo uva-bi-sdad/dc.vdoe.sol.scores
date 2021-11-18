@@ -7,16 +7,20 @@ dataset:
   citation:
       title: "Social Data Commons: Education & Training: Virginia SOL Scores"
       dsDescriptionValue: "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)"
-      subject: "Social Sciences"
+      subject: "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"
       productionDate: "2021-11-17"
       author:
         - authorName: "Schroeder, Aaron"
           authorAffiliation: "Univeristy of Virginia"
         - authorName: "Charankevich, Hanna"
           authorAffiliation: "Univeristy of Virginia"
+        - authorName: "Niagra, Bob"
+          authorAffiliation: "Univeristy of Waterloo"
       datasetContact:
-        datasetContactEmail: "ads7fg@virginia.edu"
-        datasetContactName: "Schroeder, Aaron"
+        - datasetContactEmail: "ads7fg@virginia.edu"
+          datasetContactName: "Schroeder, Aaron"
+        - datasetContactEmail: "hc2cc@virginia.edu"
+          datasetContactName: "Charankevich, Hanna"
   geospatial:
     geographicCoverage:
       country: "United States"
@@ -26,24 +30,20 @@ dataset:
       - "County"
 ---
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-## Create Dataverse Dataset (if needed) and get DOI
+# CREATE DATASET FIRST WITH dataset_create.Rmd
+
+## This will give you a dataset to which you can add files
+
+## This will also set the dataset DOI
+
+## Get dataset DOI
+
 ```{r}
-ds_meta <- jsonlite::read_json("dataset-metadata.json")
-
-response <- create_dataset(
-  dataverse = "biocomplexity",
-  body = ds_meta,
-  key = Sys.getenv("DATAVERSE_KEY"),
-  server = Sys.getenv("DATAVERSE_SERVER")
-)
-
-dataset_doi <- response$data$persistentId
+dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
 ```
 
 ## Get data from database
@@ -78,4 +78,3 @@ add_dataset_file(
   description = dat_file_name
 )
 ```
-

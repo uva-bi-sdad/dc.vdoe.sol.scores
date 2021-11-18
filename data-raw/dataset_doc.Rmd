@@ -5,36 +5,7 @@ date: "11/17/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
 
-```{r}
-metadata_template <- jsonlite::read_json("data-raw/dataset-metadata.json")
-yml_metadata <- rmarkdown::yaml_front_matter("data-raw/dataset.Rmd")
-
-citation_field_l <- length(metadata_template$datasetVersion$metadataBlocks$citation$fields)
-
-for (i in 1:citation_field_l) {
-  typename <- metadata_template$datasetVersion$metadataBlocks$citation$fields[[i]]$typeName
-  typename_dt <- data.table::data.table(i, typename)
-  if (!exists("typenames")) typenames <- typename_dt
-  else typenames <- data.table::rbindlist(list(typenames, typename_dt))
-}
-
-```
-
-```{r}
-geospatial_field_l <- length(metadata_template$datasetVersion$metadataBlocks$geospatial$fields)
-rm(c_typenames)
-for (i in 1:geospatial_field_l) {
-  c_typename <- metadata_template$datasetVersion$metadataBlocks$geospatial$fields[[i]]$typeName
-  c_typename_dt <- data.table::data.table(i, c_typename)
-  if (!exists("c_typenames")) c_typenames <- c_typename_dt
-  else c_typenames <- data.table::rbindlist(list(c_typenames, c_typename_dt))
-}
- metadata_template$datasetVersion$metadataBlocks$geospatial$fields[[1]]$value[[1]]$
-```
 
