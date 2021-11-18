@@ -9,11 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# CREATE DATASET FIRST WITH dataset_create.Rmd
-
-## This will give you a dataset to which you can add files
-
-## This will also set the dataset DOI
+# VDOE SOL 3rd Grade Reading Scores
 
 ## Get dataset DOI
 
