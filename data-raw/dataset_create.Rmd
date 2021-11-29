@@ -176,26 +176,30 @@ dataset_metadata$datasetVersion$metadataBlocks$geospatial$fields[[2]]$value <- g
 # Create or update dataverse dataset
 
 ```{r}
-dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
-
-if (is.na(dataset_doi)) {
-  ## Create dataset
-  ds_info <- dataverse::create_dataset(
-    dataverse = "biocomplexity",
-    body = dataset_metadata,
-    key = Sys.getenv("DATAVERSE_KEY"),
-    server = Sys.getenv("DATAVERSE_SERVER")
-  )
+if (exists("data/dataset_doi")) {
+  dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
+ 
+  if (is.na(dataset_doi)) {
+    ## Create dataset
+    ds_info <- dataverse::create_dataset(
+      dataverse = "biocomplexity",
+      body = dataset_metadata,
+      key = Sys.getenv("DATAVERSE_KEY"),
+      server = Sys.getenv("DATAVERSE_SERVER")
+    )
   
-  ## Save dataset DOI to data
-  writeLines(ds_info$data$persistentId, here::here("data/dataset_doi"))
-} else {
-  dataverse::update_dataset(
-    dataset = dataset_doi,
-    body = dataset_metadata,
-    key = Sys.getenv("DATAVERSE_KEY"),
-    server = Sys.getenv("DATAVERSE_SERVER")
-  )
+    ## Save dataset DOI to data
+    writeLines(ds_info$data$persistentId, here::here("data/dataset_doi"))
+  } else {
+    dataverse::update_dataset(
+      dataset = dataset_doi,
+      body = dataset_metadata,
+      key = Sys.getenv("DATAVERSE_KEY"),
+      server = Sys.getenv("DATAVERSE_SERVER")
+    )
+  }
 }
+
+
 
 ```
